@@ -23,7 +23,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section 
+    <section
       className="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-fixed"
       style={{
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('https://readdy.ai/api/search-image?query=Majestic%20Korean%20traditional%20palace%20architecture%20with%20modern%20Seoul%20skyline%20in%20background%2C%20dramatic%20lighting%20with%20golden%20hour%20atmosphere%2C%20patriotic%20composition%20showing%20Korea%20heritage%20and%20progress%2C%20cinematic%20wide%20angle%20view%20with%20Korean%20flag%20colors%20subtly%20integrated%2C%20professional%20architectural%20photography%20style&width=1920&height=1080&seq=korea-heritage-hero&orientation=landscape')`
@@ -108,6 +108,8 @@ export default function HeroSection() {
         <button
           onClick={() => scrollToSection('presidents')}
           className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300 border border-white/30"
+          title="Scroll to Presidents section"
+          aria-label="Scroll to Presidents section"
         >
           <i className="ri-arrow-down-line text-xl"></i>
         </button>

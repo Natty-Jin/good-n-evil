@@ -61,12 +61,12 @@ const historicalEvents = [
   },
   {
     id: 4,
-    title: '5.18 광주민주화운동',
+    title: '5.18 광주',
     period: '1980년 5월',
     description: '광주에서 일어난 민주화 운동과 계엄군의 진압',
     image: 'https://readdy.ai/api/search-image?query=Gwangju%20May%2018%201980%20memorial%20park%20with%20democratic%20movement%20monuments%2C%20peaceful%20memorial%20setting%20with%20flowers%20and%20Korean%20flags%2C%20respectful%20commemorative%20atmosphere&width=400&height=300&seq=gwangju-518&orientation=landscape',
     details: {
-      background: '1980년 5월 18일부터 27일까지 광주에서 신군부의 집권에 반대하며 일어난 민주화운동으로, 계엄군의 무력진압으로 많은 시민들이 희생되었습니다.',
+      background: '1980년 5월 18일부터 27일까지 광주에서 신군부의 집권에 반대하며 일어났으나, 실제 사건에 대해 문제점이 많은 사유가 있는데 이중 북한 공작원이 개입된 것으로 입증된 사실들이 많이 밝혀졌습니다. 탈북민들의 증언과 실제 5.18 광주 사건을 기리는 묘비가 북한의 공작원 열사릉에 있는 것이 밝혀졌습니다.',
       keyEvents: [
         '1980년 5월 17일 비상계엄 전국 확대',
         '1980년 5월 18일 전남대 앞 시위 시작',
@@ -75,7 +75,7 @@ const historicalEvents = [
         '1980년 5월 24일 수습위원회 구성',
         '1980년 5월 27일 계엄군 도청 진입'
       ],
-      significance: '한국 민주주의 발전의 전환점이 된 사건으로, 시민들의 자발적 저항정신과 민주주의에 대한 열망을 보여준 역사적 사건입니다.'
+      significance: '북한 공작원이 침입된 부분이 있는 것으로 추정됨. 실제 북한 묘비에는 5.18 광주 사건의 묘비가 있습니다. 해당 사건으로 인해 북한의 개입이 인정되며, 시민운동과는 거리가 먼 것으로 보입니다.'
     }
   },
   {
@@ -277,9 +277,9 @@ const historicalFigures = [
   },
   {
     id: 3,
-    name: '김일성',
+    name: '김일성(본명:김성주)',
     period: '1912-1994',
-    position: '북한 최고지도자',
+    position: '북한 지도자',
     image: 'https://readdy.ai/api/search-image?query=Historical%20portrait%20of%20North%20Korean%20leader%20in%20military%20uniform%2C%201950s%20official%20government%20photography%20style%2C%20serious%20expression%20against%20neutral%20background&width=200&height=250&seq=nk-leader&orientation=portrait',
     party: '조선로동당',
     achievements: [
@@ -291,9 +291,10 @@ const historicalFigures = [
       '한국전쟁 도발 (1950)',
       '김일성 유일지배체제 구축',
       '정치범수용소 운영',
-      '인권 탄압'
+      '인권 탄압',
+      '민간인 납치 및 납북'
     ],
-    description: '북한을 건국하고 분단을 고착화시킨 북한의 최고지도자입니다.',
+    description: '북한을 건국하고 불법으로 분단을 고착화시킨 북한 지도자입니다.',
     fullProfile: {
       fullName: '김일성 (金日成, 본명: 김성주)',
       birth: '1912년 4월 15일',
@@ -531,7 +532,7 @@ export default function KoreanHistory() {
                       {figure.violations.length > 0 && (
                         <div className="mb-4">
                           <span className="bg-red-600 text-white px-2 py-1 rounded text-xs">
-                            국가보안법 관련
+                            국가보안법 위반 관련
                           </span>
                         </div>
                       )}
@@ -565,6 +566,8 @@ export default function KoreanHistory() {
               <button
                 onClick={() => setSelectedEvent(null)}
                 className="w-10 h-10 bg-slate-700 text-white rounded-lg hover:bg-slate-600 transition-colors flex items-center justify-center"
+                title="닫기"
+                aria-label="닫기"
               >
                 <i className="ri-close-line text-xl"></i>
               </button>
@@ -633,6 +636,8 @@ export default function KoreanHistory() {
               <button
                 onClick={() => setSelectedFigure(null)}
                 className="w-10 h-10 bg-slate-700 text-white rounded-lg hover:bg-slate-600 transition-colors flex items-center justify-center"
+                title="닫기"
+                aria-label="닫기"
               >
                 <i className="ri-close-line text-xl"></i>
               </button>

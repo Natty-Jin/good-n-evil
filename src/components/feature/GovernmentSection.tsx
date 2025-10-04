@@ -343,6 +343,8 @@ export function GovernmentOfficialsSection() {
               <button
                 onClick={() => setSelectedPerson(null)}
                 className="w-10 h-10 bg-slate-700 text-white rounded-lg hover:bg-slate-600 transition-colors flex items-center justify-center"
+                aria-label="닫기"
+                title="닫기"
               >
                 <i className="ri-close-line text-xl"></i>
               </button>

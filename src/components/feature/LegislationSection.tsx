@@ -448,6 +448,8 @@ export default function LegislationSection() {
               <button
                 onClick={() => setSelectedLegislation(null)}
                 className="w-10 h-10 bg-slate-700 text-white rounded-lg hover:bg-slate-600 transition-colors flex items-center justify-center"
+                title="닫기"
+                aria-label="닫기"
               >
                 <i className="ri-close-line text-xl"></i>
               </button>
@@ -533,6 +535,8 @@ export default function LegislationSection() {
               <button
                 onClick={() => setSelectedMember(null)}
                 className="w-10 h-10 bg-slate-700 text-white rounded-lg hover:bg-slate-600 transition-colors flex items-center justify-center"
+                title="닫기"
+                aria-label="닫기"
               >
                 <i className="ri-close-line text-xl"></i>
               </button>

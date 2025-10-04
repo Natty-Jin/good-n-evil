@@ -353,9 +353,6 @@ const battleData: { [key: string]: Battle[] } = {
 // 모든 전투 데이터를 하나의 배열로 변환
 const battles: Battle[] = Object.values(battleData).flat();
 
-interface BattleCalendarProps {
-  onBattleSelect?: (coordinates: { lat: number; lng: number }) => void;
-}
 
 export default function BattleCalendar() {
   const [selectedMonth, setSelectedMonth] = useState(6); // 6월부터 시작
@@ -402,7 +399,7 @@ export default function BattleCalendar() {
   const calendar = generateCalendar(selectedYear, selectedMonth);
 
   // 특정 날짜에 전투가 있는지 확인
-  const getBattleForDate = (day: number) => {
+  const getBattleForDate = (day: number | null) => {
     if (!day) return null;
     return monthBattles.find(battle => {
       const battleDate = new Date(battle.date);
@@ -415,7 +412,10 @@ export default function BattleCalendar() {
       <div className="flex items-center justify-between mb-8">
         <h3 className="text-2xl font-bold text-white">6.25 전쟁 전투 달력</h3>
         <div className="flex items-center space-x-4">
+          <label htmlFor="battle-calendar-year" className="sr-only">연도 선택</label>
           <select
+            id="battle-calendar-year"
+            aria-label="연도 선택"
             value={selectedYear}
             onChange={(e) => setSelectedYear(Number(e.target.value))}
             className="bg-slate-700 text-white px-4 py-2 rounded-lg border border-slate-600 focus:border-blue-400 focus:outline-none pr-8"
@@ -425,7 +425,10 @@ export default function BattleCalendar() {
             <option value={1952}>1952년</option>
             <option value={1953}>1953년</option>
           </select>
+          <label htmlFor="battle-calendar-month" className="sr-only">월 선택</label>
           <select
+            id="battle-calendar-month"
+            aria-label="월 선택"
             value={selectedMonth}
             onChange={(e) => setSelectedMonth(Number(e.target.value))}
             className="bg-slate-700 text-white px-4 py-2 rounded-lg border border-slate-600 focus:border-blue-400 focus:outline-none pr-8"
@@ -526,8 +529,7 @@ export default function BattleCalendar() {
           onClick={handleModalClose}
         >
           <div 
-            className="bg-slate-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            className="bg-slate-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto hide-scrollbar"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="sticky top-0 bg-slate-800 border-b border-slate-700 p-6 flex items-center justify-between">
@@ -535,6 +537,8 @@ export default function BattleCalendar() {
               <button
                 onClick={() => setSelectedBattle(null)}
                 className="w-10 h-10 bg-slate-700 text-white rounded-lg hover:bg-slate-600 transition-colors flex items-center justify-center"
+                title="닫기"
+                aria-label="닫기"
               >
                 <i className="ri-close-line text-xl"></i>
               </button>

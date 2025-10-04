@@ -113,6 +113,8 @@ export default function Navigation({ onSectionChange, activeSection }: Navigatio
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="lg:hidden w-10 h-10 bg-slate-800 text-white rounded-lg hover:bg-slate-700 transition-colors flex items-center justify-center"
+            title={isMenuOpen ? "메뉴 닫기" : "메뉴 열기"}
+            aria-label={isMenuOpen ? "메뉴 닫기" : "메뉴 열기"}
           >
             <i className={`${isMenuOpen ? 'ri-close-line' : 'ri-menu-line'} text-xl`}></i>
           </button>

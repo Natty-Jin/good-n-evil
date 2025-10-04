@@ -482,7 +482,9 @@ export default function AlliesSection() {
                 </div>
 
                 <p className="text-xs text-slate-300 leading-relaxed bg-slate-700/20 p-3 rounded-lg">
-                  {activeTab === 'allies' ? force.contribution : force.role}
+                  {activeTab === 'allies'
+                    ? ('contribution' in force ? force.contribution : '')
+                    : ('role' in force ? force.role : '')}
                 </p>
 
                 {activeTab === 'allies' && (
@@ -741,7 +743,7 @@ export default function AlliesSection() {
         </div>
       </div>
 
-      <style jsx>{`
+      <style >{`
         @keyframes fadeIn {
           from { opacity: 0; }
           to { opacity: 1; }
