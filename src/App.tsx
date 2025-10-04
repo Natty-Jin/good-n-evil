@@ -10,4 +10,4 @@ function App() {
   )
 }
 
-export default Apph
+export default App
